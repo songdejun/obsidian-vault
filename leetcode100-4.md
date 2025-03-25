@@ -228,46 +228,7 @@
 ## (1) 反转链表处理回字序列（low 版）
 
 ```python
-class Solution:
-    def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        p = head
-        cnt = 0
-        # 计算回文链表长度
-        while p is not None:
-            cnt += 1
-            p = p.next
 
-        if cnt == 1:
-            return True
-		
-        # 找到
-        i = 0
-        p = head
-        while i < cnt // 2 - 1:
-            p = p.next
-            i += 1   
-        l = p
-        if cnt % 2 == 0:
-            r = l.next
-        else:
-            r = l.next.next
-        p = head
-        tail = l.next
-        prev = None
-        while p != tail:
-            nxt = p.next
-            p.next = prev
-            prev = p
-            p = nxt
-
-        while l.val == r.val:
-            l = l.next
-            r = r.next
-
-            if l is None and r is None:
-                return True
-
-        return False
 ```
 
 ## (2) 快慢指针
