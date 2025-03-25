@@ -352,28 +352,7 @@
 ## (1) 反转链表 + 数学推导
 
 ```python
-class Solution:
-    def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # 保证前两个元素都不是 None
-        if not head or not head.next:
-            return None
 
-        # 初始化 fast slow st 指针
-        fast = slow = st = head
-
-        # 只要 fast 和 fast.next 还有效 就继续尝试更新 fast
-        while fast and fast.next:
-            fast = fast.next.next
-            slow = slow.next
-
-            # 当 fast 和 slow 相遇时开始尝试移动 st
-            if fast == slow:
-                # 可以证明 st 和 slow 相遇时 st 在环的起点
-                while st != slow:
-                    st = st.next
-                    slow = slow.next
-                return st
-        return None
 ```
 
 
